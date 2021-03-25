@@ -3,7 +3,6 @@
 import logging
 from flask import Flask, request, redirect
 from flask import url_for
-from flask_restplus import Api
 from flask_cors import CORS
 from flask_sqlalchemy import SQLAlchemy
 
@@ -19,7 +18,9 @@ app.config.update({
 
 cors = CORS(app, resources={r"*": {"origins": "*"}})
 db = SQLAlchemy(app)
-api = Api(app, doc = '/datagov_ws_service/api/')
+
+
+
 
 
 
@@ -29,6 +30,12 @@ def create_tables():
 	db.session.commit()
 
 create_tables()
+
+
+from .api import *
+
+
+
 
 
 if __name__ == '__main__':

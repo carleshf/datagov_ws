@@ -52,5 +52,6 @@ class Step(db.Model):
 	time = Column(Time)
 	completed = Column(Boolean, default = False)
 	completition = Column(DateTime, nullable = True, default = None)
+	
 	issue_id = Column(Integer, ForeignKey('issues.id'))
-	issue = relationship('Issue', back_populates = 'sample')
+	issue = relationship('Issue', back_populates = 'step')
