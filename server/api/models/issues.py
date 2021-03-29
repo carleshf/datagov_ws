@@ -45,8 +45,8 @@ def validate_issue(reg):
 		return (False, {})
 
 
-@app.route('/api/issue', methods = ['GET'])
-@app.route('/api/issue/<int:rid>', methods = ['GET'])
+@app.route('/api/issue', methods = ['POST'])
+@app.route('/api/issue/<int:rid>', methods = ['POST'])
 def get_issue(rid = None):
 	try:
 		body = request.get_json()

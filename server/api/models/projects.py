@@ -35,8 +35,8 @@ def validate_project(reg):
 		return (False, {})
 
 
-@app.route('/api/project', methods = ['GET'])
-@app.route('/api/project/<int:rid>', methods = ['GET'])
+@app.route('/api/project', methods = ['POST'])
+@app.route('/api/project/<int:rid>', methods = ['POST'])
 def get_project(rid = None):
 	try:
 		body = request.get_json()

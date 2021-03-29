@@ -13,9 +13,12 @@ def format_sample(reg):
 	return {
 		'id': reg.id,
 		'name': reg.name,
-		'index': reg.index,
+		'path_variant': reg.path_variant,
+		'path_annotation': reg.path_annotation,
+		'sparse_matrix': reg.sparse_matrix,
+		'dense_matrix': reg.dense_matrix,
+		'es_index': reg.es_index,
 		'issue_id': reg.issue_id,
-		# issue
 	}
 
 
@@ -28,7 +31,11 @@ def validate_sample(reg):
 		valid = {
 			'id': rid,
 			'name': reg['name'],
-			'index': reg['index'],
+			'path_variant': reg['path_variant'],
+			'path_annotation': reg['path_annotation'],
+			'sparse_matrix': reg['sparse_matrix'],
+			'dense_matrix': reg['dense_matrix'],
+			'es_index': reg['es_index'],
 			'issue_id': reg['issue_id'],
 			# issue
 		}
@@ -38,8 +45,8 @@ def validate_sample(reg):
 
 
 
-@app.route('/api/sample', methods = ['GET'])
-@app.route('/api/sample/<int:rid>', methods = ['GET'])
+@app.route('/api/sample', methods = ['POST'])
+@app.route('/api/sample/<int:rid>', methods = ['POST'])
 def get_sample(rid = None):
 	try:
 		body = request.get_json()
